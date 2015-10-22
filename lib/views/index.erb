@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carl's Badass Website Full of Issues, but not the Emotional Kind of Issues, the Github Kind, although those Kinds of Issues are Equally Emotionally Charged at Times</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+      <h1>THE ISSUES</h1>
+
+      <p>Here are your current issues!</p>
+      <ul class="issue-list">
+          <% issues.each do |issue| %>
+              <li>
+                  Issue #<%= issue[:id] %>
+                  Issue #<%= issue[:state] %>
+                  <% if issue[:state] == "open" %>
+                    <form action="/issue/close/<%= issue[:id] %>" method="post">
+                        <input type="submit" value="Close!">
+                    </form>
+                  <% else %>
+                    <form action="/issue/reopen/<%= issue[:id] %>" method="post">
+                        <input type="submit" value="Close!">
+                    </form>
+                  <% end %>
+              </li>
+          <% end %>
+      </ul>
+  </body>
+</html>

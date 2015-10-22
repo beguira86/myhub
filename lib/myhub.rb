@@ -25,7 +25,6 @@ module Myhub
         }
         end 
       binding.pry
-      # get stuff from github
       erb :index, locals: { issues: stuff }
     end
 
@@ -38,7 +37,6 @@ module Myhub
     post "/issue/close/:id" do
       api = Github.new
       api.close_issue(params["id"].to_i)
-
       "Cool cool cool"
     end
 
